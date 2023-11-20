@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora de IMC</title>
+    <style>
+        body {
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        form {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            margin: 0 auto;
+            max-width: 400px;
+            padding: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="number"] {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+            padding: 10px;
+            width: 100%;
+        }
+        input[type="submit"] {
+            background-color: #333;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            color: #fff;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+            padding: 10px;
+            width: 100%;
+        }
+        .abaixo-do-peso {
+            background-color: red;
+            color: #fff;
+            font-weight: bold;
+            padding: 10px;
+            text-align: center;
+        }
+        .peso-normal {
+            background-color: blue;
+            color: #fff;
+            font-weight: bold;
+            padding: 10px;
+            text-align: center;
+        }
+        .sobrepeso {
+            background-color: orange;
+            color: #fff;
+            font-weight: bold;
+            padding: 10px;
+            text-align: center;
+        }
+        .obesidade-grau-1 {
+            background-color: purple;
+            color: #fff;
+            font-weight: bold;
+            padding: 10px;
+            text-align: center;
+        }
+        .obesidade-grau-2 {
+            background-color: brown;
+            color: #fff;
+            font-weight: bold;
+            padding: 10px;
+            text-align: center;
+        }
+        .obesidade-grau-3 {
+            background-color: black;
+            color: #fff;
+            font-weight: bold;
+            padding: 10px;
+            text-align: center;
+        }
+        .resultado {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculadora de IMC</h1>
+    <form onsubmit="calcularIMC(); return false;">
+        <label for="peso">Peso (kg):</label>
+        <input type="number" id="peso" name="peso" required>
+        <label for="altura">Altura (m):</label>
+        <input type="number" id="altura" name="altura" step="0.01" required>
+        <input type="submit" value="Calcular IMC">
+    </form>
+    <div id="resultado"></div>
+    <script>
+        function calcularIMC() {
+            var peso = parseFloat(document.getElementById("peso").value);
+            var altura = parseFloat(document.getElementById("altura").value);
+            var imc = peso / (altura * altura);
+            var resultado = document.getElementById("resultado");
+            if (imc < 18.5) {
+                resultado.innerHTML = "Abaixo do peso";
+                resultado.className = "abaixo-do-peso resultado";
+            } else if (imc < 25) {
+                resultado.innerHTML = "Peso normal";
+                resultado.className = "peso-normal resultado";
+            } else if (imc < 30) {
+                resultado.innerHTML = "Sobrepeso";
+                resultado.className = "sobrepeso resultado";
+            } else if (imc < 35) {
+                resultado.innerHTML = "Obesidade grau 1";
+                resultado.className = "obesidade-grau-1 resultado";
+            } else if (imc < 40) {
+                resultado.innerHTML = "Obesidade grau 2";
+            }}

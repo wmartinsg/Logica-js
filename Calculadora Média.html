@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadorq Média</title>
+</head>
+<style>
+  body {
+      background-color: #f0f0f0;
+      font-family: Arial, sans-serif;
+  }
+  h1 {
+      color: #333;
+      text-align: center;
+  }
+  form {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      margin: 0 auto;
+      max-width: 400px;
+      padding: 20px;
+  }
+  label {
+      display: block;
+      margin-bottom: 10px;
+  }
+  input[type="number"] {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+      font-size: 16px;
+      padding: 10px;
+      width: 100%;
+  }
+  input[type="submit"] {
+      background-color: #333;
+      border: none;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+      color: #fff;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 10px;
+      padding: 10px;
+      width: 100%;
+  }
+  .aprovado {
+      background-color: blue;
+      color: #fff;
+      font-weight: bold;
+      padding: 10px;
+      text-align: center;
+  }
+  .reprovado {
+      background-color: red;
+      color: #fff;
+      font-weight: bold;
+      padding: 10px;
+      text-align: center;
+  }
+</style>
+</head>
+<body>
+<h1>Calculadora de Média</h1>
+<form onsubmit="calcularMedia(); return false;">
+  <label for="nota1">Nota 1:</label>
+  <input type="number" id="nota1" name="nota1" required>
+  <label for="nota2">Nota 2:</label>
+  <input type="number" id="nota2" name="nota2" required>
+  <input type="submit" value="Calcular Média">
+</form>
+<div id="resultado"></div>
+<script>
+  function calcularMedia() {
+      var nota1 = parseFloat(document.getElementById("nota1").value);
+      var nota2 = parseFloat(document.getElementById("nota2").value);
+      var media = (nota1 + nota2) / 2;
+      var resultado = document.getElementById("resultado");
+      if (media >= 6) {
+          resultado.innerHTML = "APROVADO";
+          resultado.className = "aprovado";
+      } else {
+          resultado.innerHTML = "REPROVADO";
+          resultado.className = "reprovado";
+      }
+  }
+</script>
+</body>
+</html>
